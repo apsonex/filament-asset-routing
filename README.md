@@ -1,19 +1,11 @@
-# :package_description
+# This is my package filament-asset-routing
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/apsonex/filament-asset-routing.svg?style=flat-square)](https://packagist.org/packages/apsonex/filament-asset-routing)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/apsonex/filament-asset-routing/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/apsonex/filament-asset-routing/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/apsonex/filament-asset-routing/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/apsonex/filament-asset-routing/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/apsonex/filament-asset-routing.svg?style=flat-square)](https://packagist.org/packages/apsonex/filament-asset-routing)
 
-<!--delete-->
----
-This repo can be used to scaffold a Filament plugin. Follow these steps to get started:
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Make something great!
----
-<!--/delete-->
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -22,40 +14,25 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+composer require apsonex/filament-asset-routing
 ```
 
 ## Usage
 
 ```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+
+\Apsonex\FilamentAssetRouting\FilamentAssetRouting::url('/resources/dist/plugin.css', \Apsonex\FilamentImage\FilamentImageServiceProvider::class) // https://example.com/package/filename.ext?id=file_timestamp
+
+\Apsonex\FilamentAssetRouting\FilamentAssetRouting::authUrl('/resources/dist/plugin.css', \Apsonex\FilamentImage\FilamentImageServiceProvider::class) // https://example.com/package/filename.ext?id=file_timestamp // authentication required
+
+```
+
+### Helpers functions
+
+```php
+filament_asset_route(string $filePath, string $serviceProviderClass)
+
+filament_asset_route_auth(string $filePath, string $serviceProviderClass)
 ```
 
 ## Testing
@@ -78,7 +55,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Gurinder Chauhan](https://github.com/apsonex)
 - [All Contributors](../../contributors)
 
 ## License
