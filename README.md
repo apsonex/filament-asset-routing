@@ -20,10 +20,15 @@ composer require apsonex/filament-asset-routing
 ## Usage
 
 ```php
+use \Apsonex\FilamentAssetRouting\FilamentAssetRouting;
+use \Apsonex\FilamentImage\FilamentImageServiceProvider;
 
-\Apsonex\FilamentAssetRouting\FilamentAssetRouting::url('/resources/dist/plugin.css', \Apsonex\FilamentImage\FilamentImageServiceProvider::class) // https://example.com/package/filename.ext?id=file_timestamp
+FilamentAssetRouting::url('/resources/dist/plugin.css', FilamentImageServiceProvider::class) 
+// OUTOUT: https://example.com/package/filename.ext?id=file_timestamp
 
-\Apsonex\FilamentAssetRouting\FilamentAssetRouting::authUrl('/resources/dist/plugin.css', \Apsonex\FilamentImage\FilamentImageServiceProvider::class) // https://example.com/package/filename.ext?id=file_timestamp // authentication required
+// Authentication will be required to access the file
+FilamentAssetRouting::authUrl('/resources/dist/plugin.css', FilamentImageServiceProvider::class) 
+// OUTPUT: https://example.com/package/filename.ext?id=file_timestamp // authentication required
 
 ```
 
@@ -32,6 +37,7 @@ composer require apsonex/filament-asset-routing
 ```php
 filament_asset_route(string $filePath, string $serviceProviderClass)
 
+// Auth will be required to access the file
 filament_asset_route_auth(string $filePath, string $serviceProviderClass)
 ```
 
