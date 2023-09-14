@@ -23,11 +23,11 @@ composer require apsonex/filament-asset-routing
 use \Apsonex\FilamentAssetRouting\FilamentAssetRouting;
 use \Apsonex\FilamentImage\FilamentImageServiceProvider;
 
-FilamentAssetRouting::url('/resources/dist/plugin.css', FilamentImageServiceProvider::class) 
+FilamentAssetRouting::url('resources/dist/plugin.css', FilamentImageServiceProvider::class) 
 // OUTOUT: https://example.com/package/filename.ext?id=file_timestamp
 
 // Authentication will be required to access the file
-FilamentAssetRouting::authUrl('/resources/dist/plugin.css', FilamentImageServiceProvider::class) 
+FilamentAssetRouting::authUrl('resources/dist/plugin.css', FilamentImageServiceProvider::class) 
 // OUTPUT: https://example.com/package/filename.ext?id=file_timestamp // authentication required
 
 ```
