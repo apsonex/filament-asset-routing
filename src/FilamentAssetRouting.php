@@ -26,7 +26,7 @@ class FilamentAssetRouting
         if (!File::exists($location)) return '/404';
 
         return route(
-            $auth ? 'apsonex-filament-asset.auth.get-file' : 'apsonex-filament-assets.get-file',
+            $auth ? 'apsonex-filament-asset.auth.get-file' : 'apsonex-filament-asset.get-file',
             [
                 'fileName' => static::makeUrlSafe($filePath),
                 'packageName' => static::makeUrlSafe($serviceProviderClass),
