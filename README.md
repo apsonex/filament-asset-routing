@@ -1,13 +1,25 @@
-# This is my package filament-asset-routing
+# Filament asset routing
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/apsonex/filament-asset-routing.svg?style=flat-square)](https://packagist.org/packages/apsonex/filament-asset-routing)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/apsonex/filament-asset-routing/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/apsonex/filament-asset-routing/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/apsonex/filament-asset-routing/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/apsonex/filament-asset-routing/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/apsonex/filament-asset-routing.svg?style=flat-square)](https://packagist.org/packages/apsonex/filament-asset-routing)
 
+Filament has built in system to [manage assets](https://filamentphp.com/docs/3.x/support/assets#the-filamentasset-facade). But for some reason i want to create a package which helps me in development also. 
 
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## Purpose
+```php
+<!-- component.blade.php -->
+@php
+    use \Apsonex\FilamentSimpleFile\FilamentSimpleFileServiceProvider;
+@endphp
+<div
+    ax-load
+    x-load-css="[
+        @js(filament_asset_route('resources/dist/plugin.css', FilamentSimpleFileServiceProvider::class)),
+    ]"
+    ax-load-src="{{ filament_asset_route('resources/dist/plugin.js', FilamentSimpleFileServiceProvider::class) }}"
+/>
+```
+Above code will create links and package will serve the file as requested with updated timestamp to purge the file cache by browser.
 
 ## Installation
 
